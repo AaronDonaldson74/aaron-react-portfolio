@@ -11,14 +11,9 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: "Welcome to my portfolio",
             isLoading: false,
-            data: [
-                {title: "Quip", category: "eCommerce", slug: 'quip' },
-                {title: "Eventbright", category: "Scheduling", slug: 'eventbright' },
-                {title: "Ministry Safe", category: "Enterprise", slug: 'ministry-safe' }
-            ]
+            data: []
         };
         this.handleFilter = this.handleFilter.bind(this);
-        this.getPortfolioItems = this.getPortfolioItems.bind(this);
 
     }
 
@@ -33,17 +28,18 @@ export default class PortfolioContainer extends Component {
     getPortfolioItems() {
         axios.get('https://aarondonaldson.devcamp.space/portfolio/portfolio_items')
       .then(response => {
-        // handle success
-        console.log("response data",response);
+        this.setState({
+            data: response.data.portfolio_items
+        })
       })
       .catch(error => {
-        // handle error
         console.log(error);
       })
       }
     portfolioItems() {
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={'google.com'} slug={item.slug}/>;
+            console.log("item data", item);
+            return <PortfolioItem title={item.name} url={'google.com'} slug={item.id}/>;
         })
     }
 
@@ -52,13 +48,16 @@ handlePageTitleUpdate() {
         pageTitle: "Something Else"
     });
 }
+componentDidMount() {
+    this.getPortfolioItems();
+}
+
 
 render() {
     if (this.state.isLoading) {
         return <div>Loading...</div>;
     }
     
-    this.getPortfolioItems();
         return (
             <div>
                 <h2>{this.state.pageTitle}</h2>
