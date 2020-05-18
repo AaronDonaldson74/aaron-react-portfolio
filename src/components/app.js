@@ -6,7 +6,7 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
 import NavigationContainer from "./navigation/navigation-container";
-
+import PortfolioDetail  from "./portfolio/portfolio-detail";
 
 export default class App extends Component {
   render() {
@@ -25,6 +25,7 @@ export default class App extends Component {
               <Route path="/about-me" component={About} />
               <Route path="/contact-me" component={Contact} />
               <Route path="/blog" component={Blog} />
+              <Route path="/portfolio/:slug" component={PortfolioDetail} />
             </Switch>
           </div>
         </Router>

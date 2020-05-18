@@ -9,9 +9,9 @@ export default class PortfolioContainer extends Component {
             pageTitle: "Welcome to my portfolio",
             isLoading: false,
             data: [
-                {title: "Quip", category: "eCommerce" },
-                {title: "Eventbright", category: "Scheduling" },
-                {title: "Ministry Safe", category: "Enterprise" }
+                {title: "Quip", category: "eCommerce", slug: 'quip' },
+                {title: "Eventbright", category: "Scheduling", slug: 'eventbright' },
+                {title: "Ministry Safe", category: "Enterprise", slug: 'ministry-safe' }
             ]
         };
         this.handleFilter = this.handleFilter.bind(this);
@@ -27,7 +27,7 @@ export default class PortfolioContainer extends Component {
 
     portfolioItems() {
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={'google.com'}/>;
+            return <PortfolioItem title={item.title} url={'google.com'} slug={item.slug}/>;
         })
     }
 
@@ -45,7 +45,7 @@ handlePageTitleUpdate() {
         return (
             <div>
                 <h2>{this.state.pageTitle}</h2>
-                <h2>A component can only return one item. The parent div of this Htag is the one item.</h2>
+                {/* <h2>A component can only return one item. The parent div of this Htag is the one item.</h2> */}
                 <button onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
                 <button onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
                 <button onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
