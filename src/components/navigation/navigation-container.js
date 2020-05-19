@@ -9,20 +9,25 @@ export default class NavigationContainer extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="nav-wrapper">
+            <div className="left-side">
             <NavLink exact to="/">
                 Home
             </NavLink>
-            <NavLink exact to="/about-me">
+            <NavLink to="/about-me">
                 About
             </NavLink>
-            <NavLink exact to="/contact-me">
+            <NavLink to="/contact-me">
                 Contact
             </NavLink>
-            <NavLink exact to="/blog">
+            <NavLink to="/blog">
                 Blog
             </NavLink>
                 {false ? <button>Add Blog</button> : null }
+            </div>
+            <div className="right-side">
+                Aaron Donaldson
+            </div>
             </div>
         )
     }
