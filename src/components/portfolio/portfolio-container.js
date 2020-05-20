@@ -58,16 +58,13 @@ render() {
     }
     
         return (
-            <div>
-                <h2>{this.state.pageTitle}</h2>
-                {/* <h2>A component can only return one item. The parent div of this Htag is the one item.</h2> */}
-                <button onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
-                <button onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
-                <button onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
+                
                 <div className="portfolio-items-wrapper">
+                <button className='btn' onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
+                <button className='btn' onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
+                <button className='btn' onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
                 {this.portfolioItems()}
                 </div>
-            </div>
         )
     }
 }
