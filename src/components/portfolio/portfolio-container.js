@@ -64,7 +64,9 @@ render() {
                 <button onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
                 <button onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
                 <button onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
+                <div className="portfolio-items-wrapper">
                 {this.portfolioItems()}
+                </div>
             </div>
         )
     }
