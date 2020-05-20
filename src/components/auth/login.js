@@ -21,7 +21,10 @@ export default class Login extends Component {
     }
 
     handleSubmit(event) {
-        console.log("handle submit", event);
+        console.log("Handle submit",
+        this.state.email,
+        this.state.password);
+        event.preventDefault();
     }
 
     render() {
@@ -35,6 +38,7 @@ export default class Login extends Component {
                     placeholder="Your email"
                     value={this.state.email}
                     onChange={this.handleChange}
+                    autoComplete="off"
                     />
 
                     <input 
