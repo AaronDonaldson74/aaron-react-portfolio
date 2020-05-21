@@ -2,7 +2,16 @@ import React from 'react';
 import { NavLink } from "react-router-dom"
 
 
-const NavigationComponent = (props) => {
+const NavigationComponent = props => {
+    const dynamicLink = (route, linkText) => {
+        return (
+                     <div className="nav-link-wrapper">
+                        <NavLink to="/blog" activeClassName="nav-link-active">
+                            Blog
+                        </NavLink>
+                    </div>
+        )
+    }
         return (
             <div className="nav-wrapper">
                 <div className="left-side">
@@ -21,12 +30,11 @@ const NavigationComponent = (props) => {
                             Contact
                         </NavLink>
                     </div>
-                    <div className="nav-link-wrapper">
-                        <NavLink to="/blog" activeClassName="nav-link-active">
-                            Blog
-                        </NavLink>
-                    </div>
-                        {false ? <button>Add Blog</button> : null }
+
+                    {props.loggedInStatus === "LOGGED_IN" ? (
+                        dynamicLink("/blog", "Blog")
+                    ) : null}
+                    
                 </div>
                 <div className="right-side">
                     Aaron Donaldson
@@ -35,5 +43,5 @@ const NavigationComponent = (props) => {
         )
     }
 
-    export default NavigationComponent;
+export default NavigationComponent;
 
