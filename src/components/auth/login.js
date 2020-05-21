@@ -36,11 +36,12 @@ export default class Login extends Component {
         }
         ).then(response => {
             if (response.data.status === 'created') {
-                console.log("success")
+                this.props.handleSuccessfulAuth();
             } else {
                 this.setState({
                     errorText: "Wrong email or Password"
                 })
+                this.props.handleUnSuccessfulAuth();
             }
              
         })

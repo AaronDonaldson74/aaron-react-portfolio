@@ -39,6 +39,7 @@ export default class App extends Component {
         <Router>
           <div>
             <NavigationContainer />
+            <h2>{this.state.loggedInStatus}</h2>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route
