@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import axios from 'axios';
+
+import NavigationContainer from "./navigation/navigation-container";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
-import NavigationContainer from "./navigation/navigation-container";
 import PortfolioDetail  from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
-import axios from 'axios';
 
 export default class App extends Component {
   constructor(props){
@@ -20,6 +21,7 @@ export default class App extends Component {
     
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this)
     this.handleUnSuccessfulLogin = this.handleUnSuccessfulLogin.bind(this)
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this)
   }
 
   handleSuccessfulLogin() {
@@ -34,6 +36,12 @@ export default class App extends Component {
     })
   }
 
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    })
+  }
+  
   checkLoginStatus() {
     return axios.get("https://api.devcamp.space/logged_in", { 
       withCredentials: true
@@ -73,7 +81,11 @@ export default class App extends Component {
       <div className='container'>
         <Router>
           <div>
-            <NavigationContainer loggedInStatus={this.state.loggedInStatus}/>
+            <NavigationContainer 
+            loggedInStatus={this.state.loggedInStatus}
+            handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
+
             <h2>{this.state.loggedInStatus}</h2>
             <Switch>
               <Route exact path="/" component={Home} />
