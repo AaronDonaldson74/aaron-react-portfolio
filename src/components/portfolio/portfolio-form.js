@@ -30,14 +30,29 @@ export default class PortfolioForm extends Component {
                     <div>
                         <input 
                         type="text" 
-                        name="url" 
+                        name="name" 
                         placeholder="Portfolio Item Name" 
+                        value={this.state.name} 
+                        onChange={this.handleChange}
+                        />
+
+                        <input 
+                        type="text" 
+                        name="url" 
+                        placeholder="url" 
                         value={this.state.url} 
                         onChange={this.handleChange}
                         />
 
                     </div>
                     <div>
+                        <input 
+                        type="text" 
+                        name="position" 
+                        placeholder="position" 
+                        value={this.state.position} 
+                        onChange={this.handleChange}
+                        />
                         <input 
                         type="text" 
                         name="category" 
