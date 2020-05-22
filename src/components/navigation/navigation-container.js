@@ -7,11 +7,11 @@ import { NavLink } from "react-router-dom";
 const NavigationComponent = props => {
     const dynamicLink = (route, linkText) => {
         return (
-                     <div className="nav-link-wrapper">
-                        <NavLink to="/blog" activeClassName="nav-link-active">
-                            Blog
-                        </NavLink>
-                    </div>
+            <div className="nav-link-wrapper">
+                <NavLink to={route} activeClassName="nav-link-active">
+                    {linkText}
+                </NavLink>
+            </div>
         )
     }
     const handleSignOut = () => {
@@ -43,9 +43,14 @@ const NavigationComponent = props => {
                             Contact
                         </NavLink>
                     </div>
+                    <div className="nav-link-wrapper">
+                        <NavLink to="/blog" activeClassName="nav-link-active">
+                            Blog
+                        </NavLink>
+                    </div>
 
                     {props.loggedInStatus === "LOGGED_IN" ? (
-                        dynamicLink("/blog", "Blog")
+                        dynamicLink("/portfolio-manager", "Portfolio Manager")
                     ) : null}
                     
                 </div>
