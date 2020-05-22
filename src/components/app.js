@@ -72,7 +72,7 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route key={1} path="/blog" component={Blog} />
+      <Route key="blog" path="/blog" component={Blog} />
     ]
   }
 
