@@ -113,8 +113,8 @@ export default class PortfolioForm extends Component {
                     thumb_image: "",
                     banner_image: "",
                     logo: ""
-                });
-            
+                });//for some reason this semicolon is required to make it work correctly.
+
                 [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
                     ref.current.dropzone.removeAllFiles();
                 })
@@ -128,83 +128,79 @@ export default class PortfolioForm extends Component {
     
     render() {
         return (
-            <div>
-                <h1>PortfolioForm</h1>
+            <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
+                <div>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Portfolio Item Name" 
+                    value={this.state.name} 
+                    onChange={this.handleChange}
+                    />
 
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input 
-                        type="text" 
-                        name="name" 
-                        placeholder="Portfolio Item Name" 
-                        value={this.state.name} 
-                        onChange={this.handleChange}
-                        />
+                    <input 
+                    type="text" 
+                    name="url" 
+                    placeholder="url" 
+                    value={this.state.url} 
+                    onChange={this.handleChange}
+                    />
 
-                        <input 
-                        type="text" 
-                        name="url" 
-                        placeholder="url" 
-                        value={this.state.url} 
-                        onChange={this.handleChange}
-                        />
+                </div>
+                <div>
+                    <input 
+                    type="text" 
+                    name="position" 
+                    placeholder="Position" 
+                    value={this.state.position} 
+                    onChange={this.handleChange}
+                    />
+                    <select 
+                    name="category" 
+                    value={this.state.category} 
+                    onChange={this.handleChange}
+                    >
+                        <option value="Enterprise">Enterprise</option>
+                        <option value="eCommerce">eCommerce</option>
+                        <option value="Scheduling">Scheduling</option>
+                    </select>
 
-                    </div>
-                    <div>
-                        <input 
-                        type="text" 
-                        name="position" 
-                        placeholder="Position" 
-                        value={this.state.position} 
-                        onChange={this.handleChange}
-                        />
-                        <select 
-                        name="category" 
-                        value={this.state.category} 
-                        onChange={this.handleChange}
-                        >
-                            <option value="Enterprise">Enterprise</option>
-                            <option value="eCommerce">eCommerce</option>
-                            <option value="Scheduling">Scheduling</option>
-                        </select>
+                </div>
+                <div>
+                    <textarea
+                    type="text" 
+                    name="description" 
+                    placeholder="Description" 
+                    value={this.state.description} 
+                    onChange={this.handleChange}
+                    />
 
-                    </div>
-                    <div>
-                        <textarea
-                        type="text" 
-                        name="description" 
-                        placeholder="Description" 
-                        value={this.state.description} 
-                        onChange={this.handleChange}
-                        />
+                </div>
+                <div className="image-uploaders">
+                    <DropzoneComponent
+                    ref={this.thumbRef}
+                    config={this.componentConfig()}
+                    djsConfig={this.djsConfig()}
+                    eventHandlers={this.handleThumbDrop()}
+                    />
+                    <DropzoneComponent
+                    ref={this.bannerRef}
+                    config={this.componentConfig()}
+                    djsConfig={this.djsConfig()}
+                    eventHandlers={this.handleBannerDrop()}
+                    />
+                    <DropzoneComponent
+                    ref={this.logoRef}
+                    config={this.componentConfig()}
+                    djsConfig={this.djsConfig()}
+                    eventHandlers={this.handleLogoDrop()}
+                    />
+                </div>
+                <div>
+                    <button type="submit">Save</button>
+                </div>
 
-                    </div>
-                    <div className="image-uploaders">
-                        <DropzoneComponent
-                        ref={this.thumbRef}
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleThumbDrop()}
-                        />
-                        <DropzoneComponent
-                        ref={this.bannerRef}
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleBannerDrop()}
-                        />
-                        <DropzoneComponent
-                        ref={this.logoRef}
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleLogoDrop()}
-                        />
-                    </div>
-                    <div>
-                        <button type="submit">Save</button>
-                    </div>
-
-                </form>
-            </div>
+            </form>
         )
     }
 }
