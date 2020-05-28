@@ -18,7 +18,7 @@ class Blog extends Component {
         )
         .then(response => {
             this.setState({
-                blogItems: [...response.data.portfolio_blogs]
+                blogItems: response.data.portfolio_blogs
             })
           })
           .catch(error => {
@@ -30,12 +30,12 @@ class Blog extends Component {
     }
 
     render() {
+        const blogRecords = this.state.blogItems.map(blogItem => {
+            return <h1>{blogItem.title}</h1>;
+        });
     return (
         <div>
-            <h2>Blog...</h2>
-            <div>
-                <Link to="/about-me">Read More about me</Link>
-            </div>
+            {blogRecords}
         </div>
     );
     }
