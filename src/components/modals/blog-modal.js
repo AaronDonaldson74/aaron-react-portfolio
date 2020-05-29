@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactModal from 'react-modal'
 
+import BlogForm from "../blog/blog-form";
+
 ReactModal.setAppElement(".app-wrapper");//fixes a warning from the modal.
 
 export default class BlogModal extends Component {
@@ -30,7 +32,7 @@ export default class BlogModal extends Component {
                 this.props.handleModalClose();
             }} 
             isOpen={this.props.modalIsOpen}>
-                <h1>I'm in a modal!</h1>
+                <BlogForm />
             </ReactModal>
         )
     }
