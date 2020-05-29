@@ -17,6 +17,11 @@ class Blog extends Component {
 
     activateInfiniteScroll() {
         window.onscroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+               
+                console.log("get more posts")
+               
+            }
         }
     }
 
@@ -32,7 +37,7 @@ class Blog extends Component {
             console.log("An error occured in getting the blog items.", error);
           })
         }
-    componentWillMount() {
+    componentDidMount() {
         this.getBlogItems();
     }
 
