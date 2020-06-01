@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 
 export default class BlogForm extends Component {
@@ -13,7 +14,26 @@ export default class BlogForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    buildForm() {
+        let formData = new FormData()
+
+        formData.append("portfolio_blog[title]", this.state.title)
+        formData.append("portfolio_blog[blog_status]", this.state.blog_status)
+
+        return formData;
+    }
+
     handleSubmit(event) {
+        axios.post(
+            "https://aarondonaldson.devcamp.space/portfolio/portfolio_blogs",
+            this.buildForm(),
+            { withCredentials: true }
+            ).then(response => {
+            this.props.handleSuccessfulFormSubmission(response.data)
+        }).catch(error => {
+            console.log("handleSubmit for blog error", error)
+        })    
+
         this.props.handleSuccessfulFormSubmission(this.state)
         event.preventDefault()
     }
