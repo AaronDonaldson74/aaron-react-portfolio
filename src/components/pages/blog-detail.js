@@ -10,7 +10,6 @@ export default class BlogDetail extends Component {
             currentId: this.props.match.params.slug,
             blogItem: {}
         }
-
     }
 
     getBlogItem() {
