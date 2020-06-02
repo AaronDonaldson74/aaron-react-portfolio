@@ -32,8 +32,8 @@ export default class BlogForm extends Component {
             this.setState({
                 id: this.props.blog.id,
                 title: this.props.blog.title,
-                status: this.props.blog.status
-            })
+                blog_status: this.props.blog.blog_status
+            });
         }
     }
 
