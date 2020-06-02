@@ -135,6 +135,9 @@ export default class BlogForm extends Component {
                     />
                 </div>
                 <div className="image-uploaders">
+                    {this.props.editMode && this.props.blog.featured_image_url ? ( 
+                    <h1>image goes here..</h1>
+                    ) : ( 
                     <DropzoneComponent
                     ref={this.featuredImageRef}
                     config={this.componentConfig()}
@@ -143,6 +146,7 @@ export default class BlogForm extends Component {
                     >
                     <div className="dz-message">Featured Image</div>
                     </DropzoneComponent>
+                    )}
                 </div>
                 <button className="btn">Save</button>
             </form>

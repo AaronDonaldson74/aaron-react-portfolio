@@ -18,7 +18,6 @@ export default class BlogDetail extends Component {
     }
 
     handleEditClick() {
-        console.log("handleedit click")
         this.setState({ editMode: true })
     }
 
