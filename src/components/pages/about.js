@@ -11,7 +11,6 @@ export default function(props) {
                 backgroundSize: "cover",
                 backgroundPosition: "center"
             }}>
-                <h1>About me.</h1>
             </div>
             <div className="right-column">
                 <p>I am thrilled to be a student software developer. Using creativity daily to solve problems is like a dream job for me. As I learn new skills, I get more and more excited at the possibilities programming offers.
