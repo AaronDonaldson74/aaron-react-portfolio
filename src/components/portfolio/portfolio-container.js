@@ -70,9 +70,9 @@ render() {
         return (
                 <div className="homepage-wrapper">
                     <div className="filter-links">
-                            <button className='btn' onClick={() => this.handleFilter("eCommerce")}>eCommerce</button>
-                            <button className='btn' onClick={() => this.handleFilter("Scheduling")}>Scheduling</button>
-                            <button className='btn' onClick={() => this.handleFilter("Enterprise")}>Enterprise</button>
+                            <button className='btn' onClick={() => this.handleFilter("Python")}>Python</button>
+                            <button className='btn' onClick={() => this.handleFilter("ReactJS/JavaScript")}>ReactJS/JavaScript</button>
+                            <button className='btn' onClick={() => this.handleFilter("HTML/CSS")}>HTML/CSS</button>
                             <button className='btn' onClick={() => this.handleFilter("CLEAR_FILTERS")}>All</button>
                     </div>
                     <div className="portfolio-items-wrapper">
